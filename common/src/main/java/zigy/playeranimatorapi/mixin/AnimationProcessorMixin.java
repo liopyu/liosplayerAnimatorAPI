@@ -118,6 +118,9 @@ public abstract class AnimationProcessorMixin<T extends GeoAnimatable> {
                 CoreGeoBone bone = (CoreGeoBone)var11.next();
                 BoneSnapshot initialSnapshot;
                 double percentageReset;
+                if (disabledBones.contains(bone)) {
+                    continue;
+                }
                 if (!bone.hasRotationChanged()) {
                     initialSnapshot = bone.getInitialSnapshot();
                     saveSnapshot = (BoneSnapshot)boneSnapshots.get(bone.getName());

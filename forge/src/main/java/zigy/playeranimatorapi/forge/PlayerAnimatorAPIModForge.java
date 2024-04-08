@@ -4,8 +4,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import zigy.playeranimatorapi.ModInitClient;
 import zigy.playeranimatorapi.ModInit;
+import zigy.playeranimatorapi.ModInitClient;
 
 @Mod(ModInit.MOD_ID)
 public class PlayerAnimatorAPIModForge {

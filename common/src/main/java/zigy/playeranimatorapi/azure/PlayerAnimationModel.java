@@ -1,16 +1,10 @@
 package zigy.playeranimatorapi.azure;
 
-import mod.azure.azurelib.constant.DataTickets;
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.AnimationProcessor;
-import mod.azure.azurelib.core.animation.AnimationState;
 import mod.azure.azurelib.model.GeoModel;
-import mod.azure.azurelib.util.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.world.entity.LivingEntity;
 import zigy.playeranimatorapi.playeranims.PlayerAnimations;
 
 import java.util.HashMap;

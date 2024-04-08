@@ -1,10 +1,6 @@
 package zigy.playeranimatorapi.mixin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.Animation;
-import mod.azure.azurelib.core.animation.AnimationController;
-import mod.azure.azurelib.core.animation.RawAnimation;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -20,13 +16,11 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import zigy.playeranimatorapi.ModInit;
 import zigy.playeranimatorapi.ModInitClient;
 import zigy.playeranimatorapi.azure.PlayerAnimationModel;
 import zigy.playeranimatorapi.azure.PlayerAnimationRenderer;
 import zigy.playeranimatorapi.data.PlayerParts;
 import zigy.playeranimatorapi.misc.PlayerModelInterface;
-import zigy.playeranimatorapi.playeranims.ConditionalAnimations;
 import zigy.playeranimatorapi.playeranims.CustomModifierLayer;
 import zigy.playeranimatorapi.playeranims.PlayerAnimations;
 import zigy.playeranimatorapi.registry.PlayerEffectsRendererRegistry;
@@ -45,6 +39,11 @@ public class LivingEntityRendererAzureMixin<T extends LivingEntity, M extends En
         if (model instanceof PlayerModel<?>) {
             animationRenderer = new PlayerAnimationRenderer(context);
         }
+    }
+
+    @Inject(method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", at = @At("HEAD"))
+    private void render2(T entity, float entityYaw, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
+        ModInitClient.currentPlayerRenderer = animationRenderer;
     }
 
     @Inject(method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", at = @At("TAIL"), cancellable = true)

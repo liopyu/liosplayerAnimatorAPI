@@ -1,5 +1,6 @@
 package zigy.playeranimatorapi.forge;
 
+import dev.kosmx.playerAnim.core.util.Vec3f;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.client.event.ViewportEvent;
@@ -7,7 +8,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import zigy.playeranimatorapi.ModInit;
 import zigy.playeranimatorapi.ResourceReloadListener;
-import zigy.playeranimatorapi.utils.ComputeCameraAngles;
+import zigy.playeranimatorapi.utils.CameraUtils;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = ModInit.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientEvents {
@@ -24,7 +25,13 @@ public class ClientEvents {
     public static class ForgeEvents {
         @SubscribeEvent
         public static void computeCameraAngles(ViewportEvent.ComputeCameraAngles event) {
-            ComputeCameraAngles.computeCameraAngles(event.getRenderer(), event.getCamera(), event.getPartialTick());
+            CameraUtils.computeCameraLocation(event.getRenderer(), event.getCamera(), event.getPartialTick());
+            Vec3f vec = CameraUtils.computeCameraAngles(event.getRenderer(), event.getCamera(), event.getPartialTick());
+            if (vec != null) {
+                event.setYaw(vec.getX());
+                event.setPitch(vec.getY());
+                event.setRoll(vec.getZ());
+            }
         }
     }
 }

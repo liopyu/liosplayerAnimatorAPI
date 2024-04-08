@@ -5,6 +5,7 @@
   "minVersion": "0.8",
   "plugin": "zigy.playeranimatorapi.fabric.ModMixinPluginFabric",
   "client": [
+    "CameraMixin",
     "EmoteCraftClientInitMixinFabric",
     "GameRendererMixin"
   ],

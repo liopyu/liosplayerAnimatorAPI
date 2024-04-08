@@ -11,6 +11,7 @@ import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
 import zigy.playeranimatorapi.compatibility.PehkuiCompat;
 import zigy.playeranimatorapi.misc.PlayerModelInterface;
 import zigy.zigysmultiloaderutils.utils.Platform;
@@ -18,6 +19,12 @@ import zigy.zigysmultiloaderutils.utils.Platform;
 public class PlayerAnimationRenderer extends GeoEntityRenderer<AbstractClientPlayer> implements PlayerModelInterface {
 
     public PlayerModel playerModel;
+
+    private static final Vec3 head_offset = new Vec3(0, 2, 0);
+    private static final Vec3 right_arm_offset = new Vec3(5, -1, 0);
+    private static final Vec3 left_arm_offset = new Vec3(-5, -1, 0);
+    private static final Vec3 right_leg_offset = new Vec3(1.9, -12, 0);
+    private static final Vec3 left_leg_offset = new Vec3(-1.9, -12, 0);
 
     public PlayerAnimationRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new PlayerAnimationModel());
@@ -33,7 +40,13 @@ public class PlayerAnimationRenderer extends GeoEntityRenderer<AbstractClientPla
             poseStack.scale(scale.x, scale.y, scale.x);
         }
         poseStack.popPose();
+    }
 
+    public void setPlayerModel(PlayerModel model) {
+        this.playerModel = model;
+    }
+
+    public void setupAnim(BakedGeoModel model) {
         matchPlayerModel(model, playerModel.head, "head");
         matchPlayerModel(model, playerModel.body, "torso");
         matchPlayerModel(model, playerModel.rightArm, "right_arm");
@@ -42,20 +55,38 @@ public class PlayerAnimationRenderer extends GeoEntityRenderer<AbstractClientPla
         matchPlayerModel(model, playerModel.leftLeg, "left_leg");
     }
 
-    public void setPlayerModel(PlayerModel model) {
-        this.playerModel = model;
-    }
-
     public void matchPlayerModel(BakedGeoModel model, ModelPart part, String name) {
         if (model.getBone(name).isPresent()) {
             GeoBone bone = model.getBone(name).get();
+            Vec3 offset = getPositionOffsetForPart(name);
 
-            bone.setPosX(part.x);
-            bone.setPosY(part.y);
-            bone.setPosZ(part.z);
+            bone.setPosX(-(part.x + (float) offset.x));
+            bone.setPosY(-(part.y + (float) offset.y));
+            bone.setPosZ(part.z + (float) offset.z);
             bone.setRotX(-part.xRot);
             bone.setRotY(-part.yRot);
             bone.setRotZ(part.zRot);
         }
+    }
+
+    public Vec3 getPositionOffsetForPart(String part) {
+        switch (part) {
+            case "head" -> {
+                return head_offset;
+            }
+            case "right_arm" -> {
+                return right_arm_offset;
+            }
+            case "left_arm" -> {
+                return left_arm_offset;
+            }
+            case "right_leg" -> {
+                return right_leg_offset;
+            }
+            case "left_leg" -> {
+                return left_leg_offset;
+            }
+        }
+        return Vec3.ZERO;
     }
 }

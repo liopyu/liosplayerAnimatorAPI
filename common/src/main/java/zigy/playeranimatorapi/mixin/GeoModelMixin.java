@@ -7,7 +7,6 @@ import mod.azure.azurelib.core.animation.AnimatableManager;
 import mod.azure.azurelib.core.animation.AnimationProcessor;
 import mod.azure.azurelib.core.animation.AnimationState;
 import mod.azure.azurelib.model.GeoModel;
-import mod.azure.azurelib.util.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,6 +15,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import zigy.playeranimatorapi.azure.PlayerAnimationModel;
 import zigy.playeranimatorapi.playeranims.CustomModifierLayer;
 import zigy.playeranimatorapi.playeranims.PlayerAnimations;
 
@@ -34,7 +34,7 @@ public abstract class GeoModelMixin<T extends GeoAnimatable> {
 
     @Inject(method = "handleAnimations", at = @At("HEAD"), cancellable = true, remap = false)
     private void inject(T animatable, long instanceId, AnimationState<T> animationState, CallbackInfo ci) {
-        if (animatable instanceof AbstractClientPlayer) {
+        if ((Object)this instanceof PlayerAnimationModel) {
             Minecraft mc = Minecraft.getInstance();
             AnimatableManager<T> animatableManager = animatable.getAnimatableInstanceCache().getManagerForId(instanceId);
             Double currentTick = animationState.getData(DataTickets.TICK);

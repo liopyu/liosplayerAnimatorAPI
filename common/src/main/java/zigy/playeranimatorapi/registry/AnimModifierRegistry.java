@@ -7,6 +7,8 @@ import dev.kosmx.playerAnim.api.layered.modifier.SpeedModifier;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.resources.ResourceLocation;
+import zigy.playeranimatorapi.modifier.HeadPosBoundCamera;
+import zigy.playeranimatorapi.modifier.HeadRotBoundCamera;
 import zigy.playeranimatorapi.modifier.LengthModifier;
 import zigy.playeranimatorapi.modifier.MirrorOnAltHandModifier;
 import zigy.playeranimatorapi.playeranims.CustomModifierLayer;
@@ -33,5 +35,7 @@ public class AnimModifierRegistry {
         registerModifier(new ResourceLocation("player-animator", "speed"), (layer, json) -> new SpeedModifier(json.get("speed").getAsFloat()));
         registerModifier(new ResourceLocation("playeranimatorapi", "length"), (layer, json) -> new LengthModifier(layer, json.get("desiredLength").getAsFloat()));
         registerModifier(new ResourceLocation("playeranimatorapi", "mirroronalthand"), (layer, json) -> new MirrorOnAltHandModifier(layer));
+        registerModifier(new ResourceLocation("playeranimatorapi", "headposboundcamera"), (layer, json) -> new HeadPosBoundCamera(layer));
+        registerModifier(new ResourceLocation("playeranimatorapi", "headrotboundcamera"), (layer, json) -> new HeadRotBoundCamera(layer));
     }
 }
