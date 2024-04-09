@@ -1,7 +1,12 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[2,)"
 issueTrackerURL = "https://github.com/ZigyTheBird/ZigysPlayerAnimatorAPI/issues"
 license = "MIT License"
+
+[[mixins]]
+config = "playeranimatorapi-common.mixins.json"
+[[mixins]]
+config = "playeranimatorapi.mixins.json"
 
 [[mods]]
 modId = "playeranimatorapi"
@@ -15,22 +20,22 @@ API for playing player animations from server side.
 logoFile = "icon.png"
 
 [[dependencies.playeranimatorapi]]
-modId = "forge"
-mandatory = true
-versionRange = "[47,)"
+modId = "neoforge"
+type="required"
+versionRange = "[20.4.225,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.playeranimatorapi]]
 modId = "minecraft"
-mandatory = true
-versionRange = "[1.20.1,)"
+type="required"
+versionRange = "[1.20.2,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.playeranimatorapi]]
 modId = "playeranimator"
-mandatory = true
+type="required"
 versionRange = "[${player_anim_version},)"
 ordering = "AFTER"
 side = "CLIENT"

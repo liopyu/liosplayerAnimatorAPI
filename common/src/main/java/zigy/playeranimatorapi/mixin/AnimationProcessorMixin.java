@@ -1,13 +1,13 @@
 package zigy.playeranimatorapi.mixin;
 
-import mod.azure.azurelib.core.animatable.GeoAnimatable;
-import mod.azure.azurelib.core.animatable.model.CoreGeoBone;
-import mod.azure.azurelib.core.animatable.model.CoreGeoModel;
-import mod.azure.azurelib.core.animation.*;
-import mod.azure.azurelib.core.keyframe.AnimationPoint;
-import mod.azure.azurelib.core.keyframe.BoneAnimationQueue;
-import mod.azure.azurelib.core.state.BoneSnapshot;
-import mod.azure.azurelib.core.utils.Interpolations;
+import mod.azure.azurelib.common.internal.common.core.animatable.GeoAnimatable;
+import mod.azure.azurelib.common.internal.common.core.animatable.model.CoreGeoBone;
+import mod.azure.azurelib.common.internal.common.core.animatable.model.CoreGeoModel;
+import mod.azure.azurelib.common.internal.common.core.animation.*;
+import mod.azure.azurelib.common.internal.common.core.keyframe.AnimationPoint;
+import mod.azure.azurelib.common.internal.common.core.keyframe.BoneAnimationQueue;
+import mod.azure.azurelib.common.internal.common.core.state.BoneSnapshot;
+import mod.azure.azurelib.common.internal.common.core.utils.Interpolations;
 import net.minecraft.client.player.AbstractClientPlayer;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -130,8 +130,8 @@ public abstract class AnimationProcessorMixin<T extends GeoAnimatable> {
 
                     percentageReset = Math.min((animTime - saveSnapshot.getLastResetRotationTick()) / resetTickLength, 1.0);
                     bone.setRotX((float) Interpolations.lerp((double)saveSnapshot.getRotX(), (double)initialSnapshot.getRotX(), percentageReset));
-                    bone.setRotY((float)Interpolations.lerp((double)saveSnapshot.getRotY(), (double)initialSnapshot.getRotY(), percentageReset));
-                    bone.setRotZ((float)Interpolations.lerp((double)saveSnapshot.getRotZ(), (double)initialSnapshot.getRotZ(), percentageReset));
+                    bone.setRotY((float) Interpolations.lerp((double)saveSnapshot.getRotY(), (double)initialSnapshot.getRotY(), percentageReset));
+                    bone.setRotZ((float) Interpolations.lerp((double)saveSnapshot.getRotZ(), (double)initialSnapshot.getRotZ(), percentageReset));
                     if (percentageReset >= 1.0) {
                         saveSnapshot.updateRotation(bone.getRotX(), bone.getRotY(), bone.getRotZ());
                     }

@@ -1,6 +1,6 @@
 package zigy.playeranimatorapi.azure;
 
-import mod.azure.azurelib.core.animation.*;
+import mod.azure.azurelib.common.internal.common.core.animation.*;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.world.entity.player.Player;
 import zigy.playeranimatorapi.ModInit;

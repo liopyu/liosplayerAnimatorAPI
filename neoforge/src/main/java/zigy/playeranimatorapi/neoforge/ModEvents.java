@@ -1,8 +1,8 @@
-package zigy.playeranimatorapi.forge;
+package zigy.playeranimatorapi.neoforge;
 
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import zigy.playeranimatorapi.ModInit;
 import zigy.playeranimatorapi.commands.PlayPlayerAnimationCommand;
 import zigy.playeranimatorapi.commands.StopPlayerAnimationCommand;

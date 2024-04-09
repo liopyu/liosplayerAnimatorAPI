@@ -1,4 +1,4 @@
-package zigy.playeranimatorapi.forge;
+package zigy.playeranimatorapi.neoforge;
 
 import com.google.common.collect.ImmutableMap;
 import org.objectweb.asm.tree.ClassNode;

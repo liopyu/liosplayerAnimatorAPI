@@ -1,5 +1,5 @@
 architectury {
-    common(rootProject.enabled_platforms.split(","))
+    common("fabric", "neoforge")
 }
 
 dependencies {
@@ -14,13 +14,13 @@ dependencies {
         exclude group: "net.fabricmc.fabric-api"
     })
 
-    modCompileOnly "mezz.jei:jei-$rootProject.minecraft_version-common-api:$rootProject.jei_version"
-    modRuntimeOnly "mezz.jei:jei-$rootProject.minecraft_version-common:$rootProject.jei_version"
+//    modCompileOnly "mezz.jei:jei-$rootProject.minecraft_version-common-api:$rootProject.jei_version"
+//    modRuntimeOnly "mezz.jei:jei-$rootProject.minecraft_version-common:$rootProject.jei_version"
 
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:$rootProject.rei_version"
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin:$rootProject.rei_version"
+//    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:$rootProject.rei_version"
+//    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin:$rootProject.rei_version"
 
-    modCompileOnly "curse.maven:emotecraft-397809:4632459"
+//    modCompileOnly "curse.maven:emotecraft-397809:4632459"
 }
 
 jar {

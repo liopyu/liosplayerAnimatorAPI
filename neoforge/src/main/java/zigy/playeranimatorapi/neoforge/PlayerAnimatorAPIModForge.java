@@ -1,16 +1,16 @@
-package zigy.playeranimatorapi.forge;
+package zigy.playeranimatorapi.neoforge;
 
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import zigy.playeranimatorapi.ModInit;
 import zigy.playeranimatorapi.ModInitClient;
 
 @Mod(ModInit.MOD_ID)
 public class PlayerAnimatorAPIModForge {
     public PlayerAnimatorAPIModForge() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus modEventBus = NeoForge.EVENT_BUS;
         modEventBus.addListener(this::ClientInit);
 
         ModInit.init();

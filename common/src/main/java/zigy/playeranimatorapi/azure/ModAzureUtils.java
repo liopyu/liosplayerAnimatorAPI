@@ -1,6 +1,6 @@
 package zigy.playeranimatorapi.azure;
 
-import mod.azure.azurelib.AzureLib;
+import mod.azure.azurelib.common.internal.common.AzureLib;
 
 public class ModAzureUtils {
 

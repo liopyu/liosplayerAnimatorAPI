@@ -1,11 +1,11 @@
-package zigy.playeranimatorapi.forge;
+package zigy.playeranimatorapi.neoforge;
 
 import dev.kosmx.playerAnim.core.util.Vec3f;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
-import net.minecraftforge.client.event.ViewportEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
+import net.neoforged.neoforge.client.event.ViewportEvent;
 import zigy.playeranimatorapi.ModInit;
 import zigy.playeranimatorapi.ResourceReloadListener;
 import zigy.playeranimatorapi.utils.CameraUtils;
