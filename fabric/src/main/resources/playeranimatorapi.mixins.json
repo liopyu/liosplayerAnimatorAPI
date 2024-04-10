@@ -6,6 +6,7 @@
   "plugin": "zigy.playeranimatorapi.fabric.ModMixinPluginFabric",
   "client": [
     "CameraMixin",
+    "EmoteCraftClientInitMixinFabric",
     "GameRendererMixin"
   ],
   "mixins": [],

@@ -1,6 +1,6 @@
 package zigy.playeranimatorapi;
 
-import mod.azure.azurelib.animatable.GeoEntity;
+import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
 
 public interface GeoPlayer extends GeoEntity {
 }
