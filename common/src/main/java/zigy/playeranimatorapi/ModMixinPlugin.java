@@ -1,29 +1,23 @@
 package zigy.playeranimatorapi;
 
-import com.google.common.collect.ImmutableMap;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import zigy.zigysmultiloaderutils.utils.Platform;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.function.Supplier;
 
 public class ModMixinPlugin implements IMixinConfigPlugin {
-
-    private static final Supplier<Boolean> TRUE = () -> true;
-
-    private static final Map<String, Supplier<Boolean>> CONDITIONS = ImmutableMap.of(
-            "zigy.playeranimatorapi.mixin.PlayerAzureMixin", () -> Platform.isModLoaded("azurelib", "mod.azure.azurelib.AzureLib"),
-            "zigy.playeranimatorapi.mixin.LivingEntityRendererAzureMixin", () -> Platform.isModLoaded("azurelib", "mod.azure.azurelib.AzureLib"),
-            "zigy.playeranimatorapi.mixin.LivingEntityRendererMixin", () -> !Platform.isModLoaded("azurelib", "mod.azure.azurelib.AzureLib")
-    );
-
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        return CONDITIONS.getOrDefault(mixinClassName, TRUE).get();
+        if (mixinClassName.endsWith("_azureOnly") && !Platform.isModLoaded("azurelib", "mod.azure.azurelib.AzureLib")) {
+            return false;
+        }
+        if (mixinClassName.equals("zigy.playeranimatorapi.mixin.LivingEntityRendererMixin") && Platform.isModLoaded("azurelib", "mod.azure.azurelib.AzureLib")) {
+            return false;
+        }
+        return true;
     }
 
     //Boilerplate

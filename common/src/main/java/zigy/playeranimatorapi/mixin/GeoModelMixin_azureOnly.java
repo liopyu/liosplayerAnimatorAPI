@@ -20,7 +20,7 @@ import zigy.playeranimatorapi.playeranims.CustomModifierLayer;
 import zigy.playeranimatorapi.playeranims.PlayerAnimations;
 
 @Mixin(GeoModel.class)
-public abstract class GeoModelMixin<T extends GeoAnimatable> {
+public abstract class GeoModelMixin_azureOnly<T extends GeoAnimatable> {
 
     @Shadow(remap = false) private long lastRenderedInstance;
 

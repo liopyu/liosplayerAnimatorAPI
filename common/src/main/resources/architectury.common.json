@@ -1,10 +1,10 @@
 {
   "injected_interfaces": {
-    "net/minecraft/client/model/geom/ModelPart": [
+    "net/minecraft/class_630": [
       "zigy/playeranimatorapi/misc/IsVisibleAccessor"
     ],
-    "net/minecraft/world/entity/player/Player": [
-      "mod/azure/azurelib/animatable/GeoEntity"
+    "net/minecraft/class_1657": [
+      "zigy/playeranimatorapi/GeoPlayer"
     ]
   }
 }

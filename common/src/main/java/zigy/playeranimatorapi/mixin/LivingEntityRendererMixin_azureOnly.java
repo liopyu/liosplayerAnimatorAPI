@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import zigy.playeranimatorapi.ModInitClient;
+import zigy.playeranimatorapi.azure.ModAzureUtilsClient;
 import zigy.playeranimatorapi.azure.PlayerAnimationModel;
 import zigy.playeranimatorapi.azure.PlayerAnimationRenderer;
 import zigy.playeranimatorapi.data.PlayerParts;
@@ -26,7 +26,7 @@ import zigy.playeranimatorapi.playeranims.PlayerAnimations;
 import zigy.playeranimatorapi.registry.PlayerEffectsRendererRegistry;
 
 @Mixin(LivingEntityRenderer.class)
-public class LivingEntityRendererAzureMixin<T extends LivingEntity, M extends EntityModel<T>> {
+public class LivingEntityRendererMixin_azureOnly<T extends LivingEntity, M extends EntityModel<T>> {
 
     @Unique
     private PlayerAnimationRenderer animationRenderer;
@@ -43,7 +43,7 @@ public class LivingEntityRendererAzureMixin<T extends LivingEntity, M extends En
 
     @Inject(method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", at = @At("HEAD"))
     private void render2(T entity, float entityYaw, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
-        ModInitClient.currentPlayerRenderer = animationRenderer;
+        ModAzureUtilsClient.currentPlayerRenderer = animationRenderer;
     }
 
     @Inject(method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", at = @At("TAIL"), cancellable = true)

@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 import java.util.function.Function;
 
 @Mixin(AnimationController.class)
-public interface AnimationControllerAccessor<T extends GeoAnimatable> {
+public interface AnimationControllerAccessor_azureOnly<T extends GeoAnimatable> {
 
     @Accessor(remap = false)
     Function<T, EasingType> getOverrideEasingTypeFunction();

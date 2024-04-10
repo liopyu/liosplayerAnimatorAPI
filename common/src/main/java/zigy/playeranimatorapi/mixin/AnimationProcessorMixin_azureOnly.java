@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.*;
 
 @Mixin(AnimationProcessor.class)
-public abstract class AnimationProcessorMixin<T extends GeoAnimatable> {
+public abstract class AnimationProcessorMixin_azureOnly<T extends GeoAnimatable> {
 
     @Shadow(remap = false) protected abstract Map<String, BoneSnapshot> updateBoneSnapshots(Map<String, BoneSnapshot> snapshots);
 
@@ -58,7 +58,7 @@ public abstract class AnimationProcessorMixin<T extends GeoAnimatable> {
                     controller.getBoneAnimationQueues().clear();
                 }
 
-                ((AnimationControllerAccessor)controller).setIsJustStarting(animatableManager.isFirstTick());
+                ((AnimationControllerAccessor_azureOnly)controller).setIsJustStarting(animatableManager.isFirstTick());
                 event.withController(controller);
                 controller.process(model, event, this.bones, boneSnapshots, animTime, crashWhenCantFindBone);
                 var11 = controller.getBoneAnimationQueues().values().iterator();
@@ -80,7 +80,7 @@ public abstract class AnimationProcessorMixin<T extends GeoAnimatable> {
                     AnimationPoint scaleXPoint = (AnimationPoint) boneAnimation.scaleXQueue().poll();
                     AnimationPoint scaleYPoint = (AnimationPoint) boneAnimation.scaleYQueue().poll();
                     AnimationPoint scaleZPoint = (AnimationPoint) boneAnimation.scaleZQueue().poll();
-                    EasingType easingType = (EasingType) ((AnimationControllerAccessor)controller).getOverrideEasingTypeFunction().apply(animatable);
+                    EasingType easingType = (EasingType) ((AnimationControllerAccessor_azureOnly)controller).getOverrideEasingTypeFunction().apply(animatable);
                     if (rotXPoint != null && rotYPoint != null && rotZPoint != null) {
                         bone.setRotX((float) EasingType.lerpWithOverride(rotXPoint, easingType) + initialSnapshot.getRotX());
                         bone.setRotY((float) EasingType.lerpWithOverride(rotYPoint, easingType) + initialSnapshot.getRotY());
@@ -171,7 +171,7 @@ public abstract class AnimationProcessorMixin<T extends GeoAnimatable> {
             }
 
             this.resetBoneTransformationMarkers();
-            ((AnimatableManagerAccessor)animatableManager).callFinishFirstTick();
+            ((AnimatableManagerAccessor_azureOnly)animatableManager).callFinishFirstTick();
             ci.cancel();
         }
     }

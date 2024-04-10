@@ -1,16 +1,14 @@
 package zigy.playeranimatorapi.events;
 
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.AnimationController;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
-import zigy.playeranimatorapi.ModInit;
 import zigy.playeranimatorapi.azure.ModAzureUtilsClient;
 import zigy.playeranimatorapi.data.PlayerAnimationData;
 import zigy.playeranimatorapi.playeranims.ConditionalAnimations;
 import zigy.playeranimatorapi.playeranims.CustomModifierLayer;
 import zigy.playeranimatorapi.playeranims.PlayerAnimations;
+import zigy.zigysmultiloaderutils.utils.Platform;
 
 public class ClientPlayerTickEvent {
 
@@ -27,11 +25,8 @@ public class ClientPlayerTickEvent {
                     PlayerAnimations.playAnimation((AbstractClientPlayer) player, data, true);
                 }
 
-                AnimatableManager<AbstractClientPlayer> manager = player.getAnimatableInstanceCache().getManagerForId(player.getId());
-                AnimationController<AbstractClientPlayer> controller = manager.getAnimationControllers().get(ModInit.MOD_ID);
-
-                if (!controller.isPlayingTriggeredAnimation()) {
-                    ModAzureUtilsClient.playGeckoAnimation((AbstractClientPlayer) player, animationContainer.data, animationContainer.getSpeed());
+                if (Platform.isModLoaded("azurelib")) {
+                    ModAzureUtilsClient.tick((AbstractClientPlayer) player, animationContainer);
                 }
             }
         }
