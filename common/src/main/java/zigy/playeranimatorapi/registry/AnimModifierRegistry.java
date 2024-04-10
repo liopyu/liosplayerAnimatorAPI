@@ -32,8 +32,8 @@ public class AnimModifierRegistry {
 
     public static void register() {
         registerModifier(new ResourceLocation("player-animator", "mirror"), (layer, json) -> new MirrorModifier());
-        registerModifier(new ResourceLocation("player-animator", "speed"), (layer, json) -> new SpeedModifier(json.get("speed").getAsFloat()));
-        registerModifier(new ResourceLocation("playeranimatorapi", "length"), (layer, json) -> new LengthModifier(layer, json.get("desiredLength").getAsFloat()));
+        registerModifier(new ResourceLocation("player-animator", "speed"), (layer, json) -> {try {return new SpeedModifier(json.get("speed").getAsFloat());}catch (NullPointerException | UnsupportedOperationException | IllegalArgumentException e) {return new SpeedModifier(1);}});
+        registerModifier(new ResourceLocation("playeranimatorapi", "length"), (layer, json) -> {try {return new LengthModifier(layer, json.get("desiredLength").getAsFloat());}catch (NullPointerException | UnsupportedOperationException | IllegalArgumentException e) {return new LengthModifier(layer, -1);}});
         registerModifier(new ResourceLocation("playeranimatorapi", "mirroronalthand"), (layer, json) -> new MirrorOnAltHandModifier(layer));
         registerModifier(new ResourceLocation("playeranimatorapi", "headposboundcamera"), (layer, json) -> new HeadPosBoundCamera(layer));
         registerModifier(new ResourceLocation("playeranimatorapi", "headrotboundcamera"), (layer, json) -> new HeadRotBoundCamera(layer));
