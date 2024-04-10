@@ -11,6 +11,8 @@ import zigy.playeranimatorapi.playeranims.PlayerAnimations;
 
 public class ModAzureUtilsClient {
 
+    public static PlayerAnimationRenderer currentPlayerRenderer;
+
     public static void playGeckoAnimation(AbstractClientPlayer player, PlayerAnimationData data, float speed) {
         AnimatableManager<AbstractClientPlayer> manager = player.getAnimatableInstanceCache().getManagerForId(player.getId());
         AnimationController<AbstractClientPlayer> controller = manager.getAnimationControllers().get(ModInit.MOD_ID);
@@ -25,6 +27,15 @@ public class ModAzureUtilsClient {
         AnimatableManager<AbstractClientPlayer> manager = player.getAnimatableInstanceCache().getManagerForId(player.getId());
         AnimationController<AbstractClientPlayer> controller = manager.getAnimationControllers().get(ModInit.MOD_ID);
         controller.stop();
+    }
+
+    public static void tick(AbstractClientPlayer player, CustomModifierLayer animationContainer) {
+        AnimatableManager<AbstractClientPlayer> manager = player.getAnimatableInstanceCache().getManagerForId(player.getId());
+        AnimationController<AbstractClientPlayer> controller = manager.getAnimationControllers().get(ModInit.MOD_ID);
+
+        if (!controller.isPlayingTriggeredAnimation()) {
+            ModAzureUtilsClient.playGeckoAnimation(player, animationContainer.data, animationContainer.getSpeed());
+        }
     }
 
     public static EasingType getEasingTypeForID(Player player) {
