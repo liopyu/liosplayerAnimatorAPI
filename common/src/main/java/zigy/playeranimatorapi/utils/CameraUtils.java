@@ -31,7 +31,7 @@ public class CameraUtils {
 
     public static void computeCameraLocation(GameRenderer renderer, @NotNull Camera camera, double partialTicks) {
         CustomModifierLayer layer = PlayerAnimations.getModifierLayer(Minecraft.getInstance().player);
-        if (layer.isActive() && layer.cameraAnimEnabled) {
+        if (layer != null && layer.isActive() && layer.cameraAnimEnabled) {
             Vec3f pos = new Vec3f((float) camera.getPosition().x, (float) camera.getPosition().y, (float) camera.getPosition().z);
             Vec3f previousPos = new Vec3f(pos.getX(), pos.getY(), pos.getZ());
             for (Object object : layer.cameraModifiers) {

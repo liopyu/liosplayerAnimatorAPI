@@ -16,7 +16,7 @@ public class ModMixinPluginFabric implements IMixinConfigPlugin {
     private static final Supplier<Boolean> TRUE = () -> true;
 
     private static final Map<String, Supplier<Boolean>> CONDITIONS = ImmutableMap.of(
-            "zigy.playeranimatorapi.forge.mixin.EmoteCraftClientInitMixinFabric", () -> FabricLoader.getInstance().isModLoaded("emotecraft")
+            "zigy.playeranimatorapi.fabric.mixin.EmoteCraftClientInitMixinFabric", () -> FabricLoader.getInstance().isModLoaded("emotecraft")
     );
 
     @Override

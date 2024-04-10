@@ -5,20 +5,20 @@
   "minVersion": "0.8",
   "plugin": "zigy.playeranimatorapi.ModMixinPlugin",
   "client": [
-    "LivingEntityRendererAzureMixin",
     "LivingEntityRendererMixin",
+    "LivingEntityRendererMixin_azureOnly",
     "ModelPartMixin",
-    "PlayerModelMixin"
+    "PlayerModelMixin_azureOnly"
   ],
   "mixins": [
-    "AnimatableManagerAccessor",
-    "AnimationControllerAccessor",
-    "AnimationProcessorMixin",
+    "AnimatableManagerAccessor_azureOnly",
+    "AnimationControllerAccessor_azureOnly",
+    "AnimationProcessorMixin_azureOnly",
     "CameraAccessor",
-    "GeoModelMixin",
+    "GeoModelMixin_azureOnly",
     "KeyframeAnimationPlayerAccessor",
-    "PlayerAzureMixin",
-    "PlayerMixin"
+    "PlayerMixin",
+    "PlayerMixin_azureOnly"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -13,7 +13,7 @@ import zigy.playeranimatorapi.ModInit;
 import zigy.playeranimatorapi.azure.ModAzureUtilsClient;
 
 @Mixin(Player.class)
-public abstract class PlayerAzureMixin implements GeoEntity {
+public abstract class PlayerMixin_azureOnly implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

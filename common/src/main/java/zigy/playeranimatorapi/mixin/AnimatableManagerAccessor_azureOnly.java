@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(AnimatableManager.class)
-public interface AnimatableManagerAccessor {
+public interface AnimatableManagerAccessor_azureOnly {
     @Invoker(remap = false)
     void callFinishFirstTick();
 }
