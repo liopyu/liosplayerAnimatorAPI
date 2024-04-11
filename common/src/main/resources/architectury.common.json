@@ -1,10 +1,10 @@
 {
   "injected_interfaces": {
     "net/minecraft/class_630": [
-      "zigy/playeranimatorapi/misc/IsVisibleAccessor"
+      "lio/playeranimatorapi/misc/IsVisibleAccessor"
     ],
     "net/minecraft/class_1657": [
-      "zigy/playeranimatorapi/GeoPlayer"
+      "lio/playeranimatorapi/GeoPlayer"
     ]
   }
 }

@@ -1,34 +1,34 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
-issueTrackerURL = "https://github.com/ZigyTheBird/ZigysPlayerAnimatorAPI/issues"
+loaderVersion = "[43,)"
+issueTrackerURL = "https://github.com/liopyu/liosplayerAnimatorAPI/issues"
 license = "MIT License"
 
 [[mods]]
-modId = "playeranimatorapi"
+modId = "liosplayeranimatorapi"
 version = "${version}"
-displayName = "Zigy's Player Animator API"
-authors = "Zigy"
+displayName = "Lio's Player Animator API"
+authors = "Zigy,Liopyu"
 description = '''
-API for playing player animations from server side.
+Lio's fork of Zigy's API for playing player animations from server side.
 '''
 
 logoFile = "icon.png"
 
-[[dependencies.playeranimatorapi]]
+[[dependencies.liosplayeranimatorapi]]
 modId = "forge"
 mandatory = true
-versionRange = "[47,)"
+versionRange = "[43,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.playeranimatorapi]]
+[[dependencies.liosplayeranimatorapi]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20.1,)"
+versionRange = "[1.19.2,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.playeranimatorapi]]
+[[dependencies.liosplayeranimatorapi]]
 modId = "playeranimator"
 mandatory = true
 versionRange = "[${player_anim_version},)"
