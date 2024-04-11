@@ -1,4 +1,4 @@
-# ZigysPlayerAnimatorAPI
+# ZigysPlayerAnimatorAPI - Fork
 
 Zigy's Player Animator API is a library mod that helps you play player animations.
 You can play animations from both server and client side.
