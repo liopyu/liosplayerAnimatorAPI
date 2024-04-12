@@ -23,6 +23,8 @@ configurations {
 }
 
 dependencies {
+
+    modImplementation 'net.liopyu.liolib:liolib-forge-1.19.2:0.0.2'
     forge "net.minecraftforge:forge:$rootProject.minecraft_version-$rootProject.forge_version"
     modImplementation "lio.liosmultiloaderutils:liosmultiloaderutils-forge-$rootProject.minecraft_version-$rootProject.multiloader_utils_version:$rootProject.multiloader_utils_version"
     //modImplementation "lio.zigysmultiloaderutils:zigysmultiloaderutils-forge-$rootProject.minecraft_version:$rootProject.multiloader_utils_version"
@@ -35,7 +37,7 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
 
-    modImplementation "mod.azure.azurelib:azurelib-forge-$rootProject.minecraft_version:$rootProject.azurelib_version"
+    //modImplementation "mod.liolib.azurelib:azurelib-forge-$rootProject.minecraft_version:$rootProject.azurelib_version"
     modImplementation "dev.kosmx.player-anim:player-animation-lib-forge:${rootProject.player_anim_version}"
 
     modImplementation "curse.maven:emotecraft-forge-403422:4632464"

@@ -26,7 +26,7 @@ public class ModMixinPluginForge implements IMixinConfigPlugin {
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         if (!madeInterface) {
             madeInterface = true;
-            if (!Platform.isModLoaded("azurelib", "mod.azure.azurelib.AzureLib")) {
+            if (!Platform.isModLoaded("liolib", "net.liopyu.liolib.LioLib")) {
                 ClassPool pool = ClassPool.getDefault();
                 CtClass dynamicClass;
                 dynamicClass = pool.makeInterface("lio.playeranimatorapi.GeoPlayer");

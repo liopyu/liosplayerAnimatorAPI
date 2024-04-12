@@ -1,13 +1,13 @@
 package lio.playeranimatorapi.mixin;
 
-import mod.azure.azurelib.core.animatable.GeoAnimatable;
-import mod.azure.azurelib.core.animatable.model.CoreGeoBone;
-import mod.azure.azurelib.core.animatable.model.CoreGeoModel;
-import mod.azure.azurelib.core.animation.*;
-import mod.azure.azurelib.core.keyframe.AnimationPoint;
-import mod.azure.azurelib.core.keyframe.BoneAnimationQueue;
-import mod.azure.azurelib.core.state.BoneSnapshot;
-import mod.azure.azurelib.core.utils.Interpolations;
+import net.lio.shadowed.eliotlash.mclib.utils.Interpolations;
+import net.liopyu.liolib.core.animatable.GeoAnimatable;
+import net.liopyu.liolib.core.animatable.model.CoreGeoBone;
+import net.liopyu.liolib.core.animatable.model.CoreGeoModel;
+import net.liopyu.liolib.core.animation.*;
+import net.liopyu.liolib.core.keyframe.AnimationPoint;
+import net.liopyu.liolib.core.keyframe.BoneAnimationQueue;
+import net.liopyu.liolib.core.state.BoneSnapshot;
 import net.minecraft.client.player.AbstractClientPlayer;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.*;
 
 @Mixin(AnimationProcessor.class)
-public abstract class AnimationProcessorMixin_azureOnly<T extends GeoAnimatable> {
+public abstract class AnimationProcessorMixin_LioLibOnly<T extends GeoAnimatable> {
 
     @Shadow(remap = false) protected abstract Map<String, BoneSnapshot> updateBoneSnapshots(Map<String, BoneSnapshot> snapshots);
 
@@ -58,7 +58,7 @@ public abstract class AnimationProcessorMixin_azureOnly<T extends GeoAnimatable>
                     controller.getBoneAnimationQueues().clear();
                 }
 
-                ((AnimationControllerAccessor_azureOnly)controller).setIsJustStarting(animatableManager.isFirstTick());
+                ((AnimationControllerAccessor_LioLibOnly)controller).setIsJustStarting(animatableManager.isFirstTick());
                 event.withController(controller);
                 controller.process(model, event, this.bones, boneSnapshots, animTime, crashWhenCantFindBone);
                 var11 = controller.getBoneAnimationQueues().values().iterator();
@@ -80,7 +80,7 @@ public abstract class AnimationProcessorMixin_azureOnly<T extends GeoAnimatable>
                     AnimationPoint scaleXPoint = (AnimationPoint) boneAnimation.scaleXQueue().poll();
                     AnimationPoint scaleYPoint = (AnimationPoint) boneAnimation.scaleYQueue().poll();
                     AnimationPoint scaleZPoint = (AnimationPoint) boneAnimation.scaleZQueue().poll();
-                    EasingType easingType = (EasingType) ((AnimationControllerAccessor_azureOnly)controller).getOverrideEasingTypeFunction().apply(animatable);
+                    EasingType easingType = (EasingType) ((AnimationControllerAccessor_LioLibOnly)controller).getOverrideEasingTypeFunction().apply(animatable);
                     if (rotXPoint != null && rotYPoint != null && rotZPoint != null) {
                         bone.setRotX((float) EasingType.lerpWithOverride(rotXPoint, easingType) + initialSnapshot.getRotX());
                         bone.setRotY((float) EasingType.lerpWithOverride(rotYPoint, easingType) + initialSnapshot.getRotY());
@@ -171,7 +171,7 @@ public abstract class AnimationProcessorMixin_azureOnly<T extends GeoAnimatable>
             }
 
             this.resetBoneTransformationMarkers();
-            ((AnimatableManagerAccessor_azureOnly)animatableManager).callFinishFirstTick();
+            ((AnimatableManagerAccessor_LioLibOnly)animatableManager).callFinishFirstTick();
             ci.cancel();
         }
     }

@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import lio.playeranimatorapi.ModInit;
-import lio.playeranimatorapi.azure.ModAzureUtilsClient;
+import lio.playeranimatorapi.liolib.ModLioLibUtilsClient;
 import lio.playeranimatorapi.data.PlayerAnimationData;
 import lio.playeranimatorapi.data.PlayerParts;
 import lio.playeranimatorapi.modifier.CommonModifier;
@@ -69,8 +69,8 @@ public class PlayerAnimations {
 
         if (animationContainer != null && animationContainer.isActive() && animationContainer.data.animationID().equals(animationID)) {
             animationContainer.animPlayer.stop();
-            if (Platform.isModLoaded("azurelib")) {
-                ModAzureUtilsClient.stopGeckoAnimation(player);
+            if (Platform.isModLoaded("liolib")) {
+                ModLioLibUtilsClient.stopGeckoAnimation(player);
             }
         }
     }
@@ -229,8 +229,8 @@ public class PlayerAnimations {
                 }
             }
 
-            if (Platform.isModLoaded("azurelib")) {
-                ModAzureUtilsClient.playGeckoAnimation(player, data, animationContainer.getSpeed());
+            if (Platform.isModLoaded("liolib")) {
+                ModLioLibUtilsClient.playGeckoAnimation(player, data, animationContainer.getSpeed());
             }
         } catch (NullPointerException e) {
             logger.warn("Player Animator API failed to play player animation: " + e);

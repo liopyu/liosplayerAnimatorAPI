@@ -3,7 +3,7 @@ package lio.playeranimatorapi.events;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
-import lio.playeranimatorapi.azure.ModAzureUtilsClient;
+import lio.playeranimatorapi.liolib.ModLioLibUtilsClient;
 import lio.playeranimatorapi.data.PlayerAnimationData;
 import lio.playeranimatorapi.playeranims.ConditionalAnimations;
 import lio.playeranimatorapi.playeranims.CustomModifierLayer;
@@ -25,8 +25,8 @@ public class ClientPlayerTickEvent {
                     PlayerAnimations.playAnimation((AbstractClientPlayer) player, data, true);
                 }
 
-                if (Platform.isModLoaded("azurelib")) {
-                    ModAzureUtilsClient.tick((AbstractClientPlayer) player, animationContainer);
+                if (Platform.isModLoaded("liolib")) {
+                    ModLioLibUtilsClient.tick((AbstractClientPlayer) player, animationContainer);
                 }
             }
         }

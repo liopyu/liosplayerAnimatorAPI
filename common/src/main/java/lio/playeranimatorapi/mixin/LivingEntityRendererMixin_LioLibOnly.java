@@ -16,9 +16,9 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import lio.playeranimatorapi.azure.ModAzureUtilsClient;
-import lio.playeranimatorapi.azure.PlayerAnimationModel;
-import lio.playeranimatorapi.azure.PlayerAnimationRenderer;
+import lio.playeranimatorapi.liolib.ModLioLibUtilsClient;
+import lio.playeranimatorapi.liolib.PlayerAnimationModel;
+import lio.playeranimatorapi.liolib.PlayerAnimationRenderer;
 import lio.playeranimatorapi.data.PlayerParts;
 import lio.playeranimatorapi.misc.PlayerModelInterface;
 import lio.playeranimatorapi.playeranims.CustomModifierLayer;
@@ -26,7 +26,7 @@ import lio.playeranimatorapi.playeranims.PlayerAnimations;
 import lio.playeranimatorapi.registry.PlayerEffectsRendererRegistry;
 
 @Mixin(LivingEntityRenderer.class)
-public class LivingEntityRendererMixin_azureOnly<T extends LivingEntity, M extends EntityModel<T>> {
+public class LivingEntityRendererMixin_LioLibOnly<T extends LivingEntity, M extends EntityModel<T>> {
 
     @Unique
     private PlayerAnimationRenderer animationRenderer;
@@ -43,7 +43,7 @@ public class LivingEntityRendererMixin_azureOnly<T extends LivingEntity, M exten
 
     @Inject(method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", at = @At("HEAD"))
     private void render2(T entity, float entityYaw, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
-        ModAzureUtilsClient.currentPlayerRenderer = animationRenderer;
+        ModLioLibUtilsClient.currentPlayerRenderer = animationRenderer;
     }
 
     @Inject(method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", at = @At("TAIL"), cancellable = true)
