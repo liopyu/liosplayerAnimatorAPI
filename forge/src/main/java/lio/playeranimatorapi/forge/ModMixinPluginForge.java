@@ -1,7 +1,9 @@
 package lio.playeranimatorapi.forge;
 
 import com.google.common.collect.ImmutableMap;
-import javassist.*;
+//import javassist.*;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -26,21 +28,29 @@ public class ModMixinPluginForge implements IMixinConfigPlugin {
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         if (!madeInterface) {
             madeInterface = true;
-            if (!Platform.isModLoaded("liolib", "net.liopyu.liolib.LioLib")) {
-                ClassPool pool = ClassPool.getDefault();
-                CtClass dynamicClass;
-                dynamicClass = pool.makeInterface("lio.playeranimatorapi.GeoPlayer");
-                try {
-                    dynamicClass.toClass(ModInit.class);
-                    Class.forName("lio.playeranimatorapi.GeoPlayer");
-                } catch (CannotCompileException | ClassNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-            }
+            checkAndDefineInterface();
         }
         return CONDITIONS.getOrDefault(mixinClassName, TRUE).get();
     }
 
+    private void checkAndDefineInterface() {
+        if (!isModLoaded("liolib")) {
+            defineInterface();
+        }
+    }
+
+    private static boolean isModLoaded(String modId) {
+        if (Platform.isModLoaded("liolib", "net.liopyu.liolib.LioLib")) {
+            return true;
+        }
+        return false;
+    }
+
+    private static void defineInterface() {
+        ClassWriter cw = new ClassWriter(0);
+        cw.visit(Opcodes.V1_8, Opcodes.ACC_PUBLIC | Opcodes.ACC_INTERFACE, "lio/playeranimatorapi/GeoPlayer", null, "java/lang/Object", null);
+        cw.visitEnd();
+    }
     //Boilerplate
 
     @Override
