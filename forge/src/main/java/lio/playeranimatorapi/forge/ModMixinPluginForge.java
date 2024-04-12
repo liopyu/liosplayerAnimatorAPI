@@ -1,14 +1,12 @@
 package lio.playeranimatorapi.forge;
 
 import com.google.common.collect.ImmutableMap;
-//import javassist.*;
+import lio.liosmultiloaderutils.utils.Platform;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
-import lio.playeranimatorapi.ModInit;
-import lio.liosmultiloaderutils.utils.Platform;
 
 import java.util.List;
 import java.util.Map;
