@@ -24,8 +24,7 @@ import zigy.zigysmultiloaderutils.utils.Platform;
 public class PlayerAnimationRenderer extends GeoEntityRenderer<AbstractClientPlayer> implements PlayerModelInterface {
 
     public PlayerModel playerModel;
-    @Nullable
-    private PlayerInfo playerInfo;
+
     private static final Vec3 head_offset = new Vec3(0, 2, 0);
     private static final Vec3 right_arm_offset = new Vec3(5, -1, 0);
     private static final Vec3 left_arm_offset = new Vec3(-5, -1, 0);
@@ -36,19 +35,6 @@ public class PlayerAnimationRenderer extends GeoEntityRenderer<AbstractClientPla
         super(renderManager, new PlayerAnimationModel());
     }
 
-    @Override
-    public ResourceLocation getTextureLocation(AbstractClientPlayer entity) {
-        PlayerInfo playerInfo = this.getPlayerInfo();
-        return playerInfo == null ? DefaultPlayerSkin.getDefaultSkin(this.animatable.getUUID()) : playerInfo.getSkinLocation();
-    }
-    @Nullable
-    protected PlayerInfo getPlayerInfo() {
-        if (this.playerInfo == null) {
-            this.playerInfo = Minecraft.getInstance().getConnection().getPlayerInfo(this.animatable.getUUID());
-        }
-
-        return this.playerInfo;
-    }
     @Override
     public void preRender(PoseStack poseStack, AbstractClientPlayer player, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);

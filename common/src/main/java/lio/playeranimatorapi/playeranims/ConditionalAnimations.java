@@ -33,20 +33,14 @@ public class ConditionalAnimations {
 
         AbstractClientPlayer player = (AbstractClientPlayer) Minecraft.getInstance().level.getPlayerByUUID(data.playerUUID());
         CustomModifierLayer animationContainer = (CustomModifierLayer) PlayerAnimationAccess.getPlayerAssociatedData(player).get(animationLayerId);
+
         ResourceLocation currentAnim = animationContainer.currentAnim;
-
         ResourceLocation baseAnim = data.animationID();
-        ResourceLocation original = data.animationID();
-        String newPath = original.getPath() + "_run";
-        ResourceLocation runningAnim = new ResourceLocation(original.getNamespace(), newPath);
-        String originalPath = data.animationID().getPath();
-        String crouchedPath = originalPath + "_crouch";
-        String crawlingPath = originalPath + "_crawl";
-        String swimmingPath = originalPath + "_swim";
+        ResourceLocation runningAnim = data.animationID().withPath(data.animationID().getPath() + "_run");
+        ResourceLocation crouchedAnim = data.animationID().withPath(data.animationID().getPath() + "_crouch");
+        ResourceLocation crawlingAnim = data.animationID().withPath(data.animationID().getPath() + "_crawl");
+        ResourceLocation swimmingAnim = data.animationID().withPath(data.animationID().getPath() + "_swim");
 
-        ResourceLocation crouchedAnim = new ResourceLocation(data.animationID().getNamespace(), crouchedPath);
-        ResourceLocation crawlingAnim = new ResourceLocation(data.animationID().getNamespace(), crawlingPath);
-        ResourceLocation swimmingAnim = new ResourceLocation(data.animationID().getNamespace(), swimmingPath);
         Map<ResourceLocation, KeyframeAnimation> animations = PlayerAnimationRegistry.getAnimations();
 
         if (player.isCrouching() && currentAnim != crawlingAnim && animations.containsKey(crouchedAnim)) {

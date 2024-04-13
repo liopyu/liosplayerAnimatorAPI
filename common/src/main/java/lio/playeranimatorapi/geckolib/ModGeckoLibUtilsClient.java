@@ -19,7 +19,7 @@ public class ModGeckoLibUtilsClient {
         controller.triggerableAnim(ConditionalAnimations.getAnimationForCurrentConditions(data).getPath(), RawAnimation.begin().then(ConditionalAnimations.getAnimationForCurrentConditions(data).getPath(), Animation.LoopType.DEFAULT));
         controller.setAnimationSpeed(speed);
 
-        controller.setTransitionLength(data.fadeLength() > -1 ? data.fadeLength() : 0);
+        controller.transitionLength(data.fadeLength() > -1 ? data.fadeLength() : 0);
         controller.tryTriggerAnimation(ConditionalAnimations.getAnimationForCurrentConditions(data).getPath());
     }
 
