@@ -25,6 +25,7 @@ subprojects {
             officialMojangMappings()
             parchment("org.parchmentmc.data:parchment-$rootProject.minecraft_version:$rootProject.parchment_version@zip")
         }
+        implementation "com.eliotlash.mclib:mclib:20"
     }
 }
 
@@ -39,8 +40,12 @@ allprojects {
 
     repositories {
         mavenCentral()
-        maven { url 'https://dl.cloudsmith.io/public/lio/liolib/maven/' }
-        //maven { url 'https://libs.azuredoom.com:4443/mods' }
+        maven {
+            url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+            content {
+                includeGroup "com.eliotlash.mclib"
+            }
+        }
         maven { url 'https://maven.kosmx.dev/' }
         maven { url = "https://nexus.resourcefulbees.com/repository/maven-public/" }
         maven { url = "https://maven.parchmentmc.org" }
@@ -62,7 +67,6 @@ allprojects {
             name "zigythebirdMods"
             url "https://maven.zigythebird.com/mods"
         }
-        maven { url "https://dl.cloudsmith.io/public/lio/multiloaderutils/maven/" }
         maven {
             url = "https://jitpack.io"
         }

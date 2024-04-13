@@ -3,17 +3,17 @@ package lio.playeranimatorapi.events;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
-import lio.playeranimatorapi.liolib.ModLioLibUtilsClient;
+import lio.playeranimatorapi.geckolib.ModGeckoLibUtilsClient;
 import lio.playeranimatorapi.data.PlayerAnimationData;
 import lio.playeranimatorapi.playeranims.ConditionalAnimations;
 import lio.playeranimatorapi.playeranims.CustomModifierLayer;
 import lio.playeranimatorapi.playeranims.PlayerAnimations;
-import lio.liosmultiloaderutils.utils.Platform;
+import zigy.zigysmultiloaderutils.utils.Platform;
 
 public class ClientPlayerTickEvent {
 
     public static void tick(Player player) {
-        if (player.level.isClientSide()) {
+        if (player.level().isClientSide()) {
             CustomModifierLayer animationContainer = PlayerAnimations.getModifierLayer((AbstractClientPlayer) player);
 
             if (animationContainer != null && animationContainer.isActive()) {
@@ -25,8 +25,8 @@ public class ClientPlayerTickEvent {
                     PlayerAnimations.playAnimation((AbstractClientPlayer) player, data, true);
                 }
 
-                if (Platform.isModLoaded("liolib")) {
-                    ModLioLibUtilsClient.tick((AbstractClientPlayer) player, animationContainer);
+                if (Platform.isModLoaded("geckolib")) {
+                    ModGeckoLibUtilsClient.tick((AbstractClientPlayer) player, animationContainer);
                 }
             }
         }

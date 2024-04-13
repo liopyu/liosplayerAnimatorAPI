@@ -6,19 +6,19 @@
   "plugin": "lio.playeranimatorapi.ModMixinPlugin",
   "client": [
     "LivingEntityRendererMixin",
-    "LivingEntityRendererMixin_LioLibOnly",
+    "LivingEntityRendererMixin_GeckoLibOnly",
     "ModelPartMixin",
-    "PlayerModelMixin_LioLibOnly"
+    "PlayerModelMixin_GeckoLibOnly"
   ],
   "mixins": [
-    "AnimatableManagerAccessor_LioLibOnly",
-    "AnimationControllerAccessor_LioLibOnly",
-    "AnimationProcessorMixin_LioLibOnly",
+    "AnimatableManagerAccessor_GeckoLibOnly",
+    "AnimationControllerAccessor_GeckoLibOnly",
+    "AnimationProcessorMixin_GeckoLibOnly",
     "CameraAccessor",
-    "GeoModelMixin_LioLibOnly",
+    "GeoModelMixin_GeckoLibOnly",
     "KeyframeAnimationPlayerAccessor",
     "PlayerMixin",
-    "PlayerMixin_LioLibOnly"
+    "PlayerMixin_GeckoLibOnly"
   ],
   "injectors": {
     "defaultRequire": 1

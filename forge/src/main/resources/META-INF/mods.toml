@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[43,)"
+loaderVersion = "[47,)"
 issueTrackerURL = "https://github.com/liopyu/liosplayerAnimatorAPI/issues"
 license = "MIT License"
 
@@ -17,14 +17,14 @@ logoFile = "icon.png"
 [[dependencies.liosplayeranimatorapi]]
 modId = "forge"
 mandatory = true
-versionRange = "[43,)"
+versionRange = "[47,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.liosplayeranimatorapi]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.2,)"
+versionRange = "[1.20.1,)"
 ordering = "NONE"
 side = "BOTH"
 

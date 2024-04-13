@@ -1,7 +1,7 @@
 package lio.playeranimatorapi.fabric.mixin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import dev.kosmx.playerAnim.core.util.Vec3f;
 import net.minecraft.client.Camera;
 import net.minecraft.client.renderer.GameRenderer;
@@ -26,7 +26,7 @@ public class GameRendererMixin {
         if (vec != null) {
             ((CameraInterface)mainCamera).PAAPI$setAnglesInternal(vec.getX(), vec.getY());
             if (vec.getZ() != 0) {
-                matrixStack.mulPose(Vector3f.ZP.rotationDegrees(vec.getZ()));
+                matrixStack.mulPose(Axis.ZP.rotationDegrees(vec.getZ()));
             }
         }
     }

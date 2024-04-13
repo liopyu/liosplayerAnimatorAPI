@@ -2,10 +2,11 @@ package lio.playeranimatorapi;
 
 import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
-import lio.playeranimatorapi.liolib.ModLioLibUtils;
+import lio.playeranimatorapi.geckolib.ModGeckoLibUtils;
 import lio.playeranimatorapi.misc.ModEntityDataSerializers;
-import lio.liosmultiloaderutils.MultiloaderUtils;
-import lio.liosmultiloaderutils.utils.Platform;
+import zigy.zigysmultiloaderutils.MultiloaderUtils;
+import zigy.zigysmultiloaderutils.utils.Platform;
+
 public class ModInit {
     public static final String MOD_ID = "liosplayeranimatorapi";
     public static final Logger LOGGER = LogUtils.getLogger();
@@ -18,8 +19,8 @@ public class ModInit {
         ModEntityDataSerializers.init();
         MultiloaderUtils.forceClientToHaveMod(MOD_ID, Platform.getModVersion(MOD_ID));
 
-        if (Platform.isModLoaded("liolib", "net.liopyu.liolib.LioLib")) {
-            ModLioLibUtils.init();
+        if (Platform.isModLoaded("geckolib", "software.bernie.geckolib.GeckoLib")) {
+            ModGeckoLibUtils.init();
             ModInit.isLiosPlayerAnimatorApiLoaded();
         }
     }

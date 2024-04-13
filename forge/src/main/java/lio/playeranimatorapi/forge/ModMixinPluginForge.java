@@ -1,12 +1,12 @@
 package lio.playeranimatorapi.forge;
 
 import com.google.common.collect.ImmutableMap;
-import lio.liosmultiloaderutils.utils.Platform;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
+import zigy.zigysmultiloaderutils.utils.Platform;
 
 import java.util.List;
 import java.util.Map;
@@ -32,13 +32,13 @@ public class ModMixinPluginForge implements IMixinConfigPlugin {
     }
 
     private void checkAndDefineInterface() {
-        if (!isModLoaded("liolib")) {
+        if (!isModLoaded("geckolib")) {
             defineInterface();
         }
     }
 
     private static boolean isModLoaded(String modId) {
-        if (Platform.isModLoaded("liolib", "net.liopyu.liolib.LioLib")) {
+        if (Platform.isModLoaded("geckolib", "software.bernie.geckolib.GeckoLib")) {
             return true;
         }
         return false;

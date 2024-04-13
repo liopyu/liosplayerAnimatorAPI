@@ -23,13 +23,13 @@ configurations {
 }
 
 dependencies {
+    modImplementation "zigy.zigysmultiloaderutils:zigysmultiloaderutils-forge-$rootProject.minecraft_version:$rootProject.multiloader_utils_version"
+    include "zigy.zigysmultiloaderutils:zigysmultiloaderutils-forge-$rootProject.minecraft_version:$rootProject.multiloader_utils_version"
 
-    modImplementation 'net.liopyu.liolib:liolib-forge-1.19.2:0.0.2'
+    modImplementation 'software.bernie.geckolib:geckolib-forge-1.20.1:4.4.2'
+
     forge "net.minecraftforge:forge:$rootProject.minecraft_version-$rootProject.forge_version"
-    modImplementation "lio.liosmultiloaderutils:liosmultiloaderutils-forge-$rootProject.minecraft_version-$rootProject.multiloader_utils_version:$rootProject.multiloader_utils_version"
-    //modImplementation "lio.zigysmultiloaderutils:zigysmultiloaderutils-forge-$rootProject.minecraft_version:$rootProject.multiloader_utils_version"
-    include "lio.liosmultiloaderutils:liosmultiloaderutils-forge-$rootProject.minecraft_version-$rootProject.multiloader_utils_version:$rootProject.multiloader_utils_version"
-    //include "lio.zigysmultiloaderutils:zigysmultiloaderutils-forge-$rootProject.minecraft_version:$rootProject.multiloader_utils_version"
+
 
     modApi("com.github.Virtuoel:Pehkui:${pehkui_version}-$rootProject.minecraft_version-forge")
 
@@ -37,10 +37,9 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
 
-    //modImplementation "mod.liolib.azurelib:azurelib-forge-$rootProject.minecraft_version:$rootProject.azurelib_version"
     modImplementation "dev.kosmx.player-anim:player-animation-lib-forge:${rootProject.player_anim_version}"
 
-    modImplementation "curse.maven:emotecraft-forge-403422:4632464"
+    modImplementation "curse.maven:emotecraft-forge-403422:4632460"
 
 
 

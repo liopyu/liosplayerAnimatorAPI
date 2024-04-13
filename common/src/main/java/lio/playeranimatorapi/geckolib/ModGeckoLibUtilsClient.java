@@ -1,6 +1,6 @@
-package lio.playeranimatorapi.liolib;
+package lio.playeranimatorapi.geckolib;
 
-import net.liopyu.liolib.core.animation.*;
+import software.bernie.geckolib.core.animation.*;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.world.entity.player.Player;
 import lio.playeranimatorapi.ModInit;
@@ -9,7 +9,7 @@ import lio.playeranimatorapi.playeranims.ConditionalAnimations;
 import lio.playeranimatorapi.playeranims.CustomModifierLayer;
 import lio.playeranimatorapi.playeranims.PlayerAnimations;
 
-public class ModLioLibUtilsClient {
+public class ModGeckoLibUtilsClient {
 
     public static PlayerAnimationRenderer currentPlayerRenderer;
 
@@ -34,7 +34,7 @@ public class ModLioLibUtilsClient {
         AnimationController<AbstractClientPlayer> controller = manager.getAnimationControllers().get(ModInit.MOD_ID);
 
         if (!controller.isPlayingTriggeredAnimation()) {
-            ModLioLibUtilsClient.playGeckoAnimation(player, animationContainer.data, animationContainer.getSpeed());
+            ModGeckoLibUtilsClient.playGeckoAnimation(player, animationContainer.data, animationContainer.getSpeed());
         }
     }
 

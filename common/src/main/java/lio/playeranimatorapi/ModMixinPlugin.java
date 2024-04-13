@@ -3,7 +3,7 @@ package lio.playeranimatorapi;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
-import lio.liosmultiloaderutils.utils.Platform;
+import zigy.zigysmultiloaderutils.utils.Platform;
 
 import java.util.List;
 import java.util.Set;
@@ -11,10 +11,10 @@ import java.util.Set;
 public class ModMixinPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (mixinClassName.endsWith("_LioLibOnly") && !Platform.isModLoaded("liolib", "net.liopyu.liolib.LioLib")) {
+        if (mixinClassName.endsWith("_GeckoLibOnly") && !Platform.isModLoaded("geckolib", "software.bernie.geckolib.GeckoLib")) {
             return false;
         }
-        if (mixinClassName.equals("lio.playeranimatorapi.mixin.LivingEntityRendererMixin") && Platform.isModLoaded("liolib", "net.liopyu.liolib.LioLib")) {
+        if (mixinClassName.equals("lio.playeranimatorapi.mixin.LivingEntityRendererMixin") && Platform.isModLoaded("geckolib", "software.bernie.geckolib.GeckoLib")) {
             return false;
         }
         return true;

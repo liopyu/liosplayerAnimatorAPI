@@ -28,7 +28,7 @@ public class StopPlayerAnimationCommand {
     private static int execute(CommandContext<CommandSourceStack> command) {
         try {
             ServerPlayer player = EntityArgument.getPlayer(command, "player");
-            PlayerAnimAPI.stopPlayerAnim((ServerLevel) player.level, player,
+            PlayerAnimAPI.stopPlayerAnim((ServerLevel) player.level(), player,
                     ResourceLocationArgument.getId(command, "animationID"));
         } catch (CommandSyntaxException e) {
             logger.warn(e);

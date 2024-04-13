@@ -52,7 +52,7 @@ public class PlayPlayerAnimationCommand {
             switch (state) {
                 case Minimal -> {
                     for (ServerPlayer player : EntityArgument.getPlayers(command, "player")) {
-                        PlayerAnimAPI.playPlayerAnim((ServerLevel) player.level, player,
+                        PlayerAnimAPI.playPlayerAnim((ServerLevel) player.level(), player,
                                 ResourceLocationArgument.getId(command, "animationID"));
                     }
                 }

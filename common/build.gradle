@@ -3,11 +3,9 @@ architectury {
 }
 
 dependencies {
-    modImplementation 'net.liopyu.liolib:liolib-forge-1.19.2:0.0.2'
+    modImplementation 'software.bernie.geckolib:geckolib-fabric-1.20.1:4.4.4'
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-    modImplementation "lio.liosmultiloaderutils:liosmultiloaderutils-common-$rootProject.minecraft_version-$rootProject.multiloader_utils_version:$rootProject.multiloader_utils_version"
-    //modImplementation "lio.zigysmultiloaderutils:zigysmultiloaderutils-common-$rootProject.minecraft_version:$rootProject.multiloader_utils_version"
-    //modImplementation "mod.liolib.azurelib:azurelib-fabric-$rootProject.minecraft_version:$rootProject.azurelib_version"
+    modImplementation "zigy.zigysmultiloaderutils:zigysmultiloaderutils-common-$rootProject.minecraft_version:$rootProject.multiloader_utils_version"
     modImplementation "dev.kosmx.player-anim:player-animation-lib-fabric:${rootProject.player_anim_version}"
 
     modApi("com.github.Virtuoel:Pehkui:${pehkui_version}", {
