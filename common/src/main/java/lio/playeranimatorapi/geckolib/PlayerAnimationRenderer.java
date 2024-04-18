@@ -2,24 +2,19 @@ package lio.playeranimatorapi.geckolib;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import software.bernie.geckolib.cache.object.BakedGeoModel;
-import software.bernie.geckolib.cache.object.GeoBone;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
-import net.minecraft.client.Minecraft;
+import lio.liosmultiloaderutils.utils.Platform;
+import lio.playeranimatorapi.compatibility.PehkuiCompat;
+import lio.playeranimatorapi.misc.PlayerModelInterface;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.multiplayer.PlayerInfo;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.resources.DefaultPlayerSkin;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import lio.playeranimatorapi.compatibility.PehkuiCompat;
-import lio.playeranimatorapi.misc.PlayerModelInterface;
-import org.jetbrains.annotations.Nullable;
-import zigy.zigysmultiloaderutils.utils.Platform;
+import software.bernie.geckolib.cache.object.BakedGeoModel;
+import software.bernie.geckolib.cache.object.GeoBone;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 public class PlayerAnimationRenderer extends GeoEntityRenderer<AbstractClientPlayer> implements PlayerModelInterface {
 

@@ -8,7 +8,7 @@ import lio.playeranimatorapi.data.PlayerAnimationData;
 import lio.playeranimatorapi.playeranims.ConditionalAnimations;
 import lio.playeranimatorapi.playeranims.CustomModifierLayer;
 import lio.playeranimatorapi.playeranims.PlayerAnimations;
-import zigy.zigysmultiloaderutils.utils.Platform;
+import lio.liosmultiloaderutils.utils.Platform;
 
 public class ClientPlayerTickEvent {
 

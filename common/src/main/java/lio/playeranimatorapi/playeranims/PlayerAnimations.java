@@ -25,8 +25,8 @@ import lio.playeranimatorapi.data.PlayerAnimationData;
 import lio.playeranimatorapi.data.PlayerParts;
 import lio.playeranimatorapi.modifier.CommonModifier;
 import lio.playeranimatorapi.registry.AnimModifierRegistry;
-import zigy.zigysmultiloaderutils.utils.NetworkManager;
-import zigy.zigysmultiloaderutils.utils.Platform;
+import lio.liosmultiloaderutils.utils.NetworkManager;
+import lio.liosmultiloaderutils.utils.Platform;
 
 import java.util.List;
 import java.util.Map;

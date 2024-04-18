@@ -3,7 +3,7 @@ package lio.playeranimatorapi;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
-import zigy.zigysmultiloaderutils.utils.Platform;
+import lio.liosmultiloaderutils.utils.Platform;
 
 import java.util.List;
 import java.util.Set;

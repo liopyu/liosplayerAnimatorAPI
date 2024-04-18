@@ -4,8 +4,8 @@ import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
 import lio.playeranimatorapi.geckolib.ModGeckoLibUtils;
 import lio.playeranimatorapi.misc.ModEntityDataSerializers;
-import zigy.zigysmultiloaderutils.MultiloaderUtils;
-import zigy.zigysmultiloaderutils.utils.Platform;
+import lio.liosmultiloaderutils.MultiloaderUtils;
+import lio.liosmultiloaderutils.utils.Platform;
 
 public class ModInit {
     public static final String MOD_ID = "liosplayeranimatorapi";

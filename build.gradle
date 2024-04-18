@@ -67,6 +67,7 @@ allprojects {
             name "zigythebirdMods"
             url "https://maven.zigythebird.com/mods"
         }
+        maven { url "https://dl.cloudsmith.io/public/lio/multiloaderutils/maven/" }
         maven {
             url = "https://jitpack.io"
         }
