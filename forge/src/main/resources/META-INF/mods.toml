@@ -5,7 +5,7 @@ license = "MIT License"
 
 [[mods]]
 modId = "liosplayeranimatorapi"
-version = "0.0.4"
+version = "${version}"
 displayName = "Lio's Player Animator API"
 authors = "Zigy,Liopyu"
 description = '''
