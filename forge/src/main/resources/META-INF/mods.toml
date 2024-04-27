@@ -37,6 +37,6 @@ side = "CLIENT"
 [[dependencies.liosplayeranimatorapi]]
 modId = "animationjs"
 mandatory = false
-versionRange = "1.20.1-0.0.5,)"
+versionRange = "[1.20.1-0.0.5,)"
 ordering = "NONE"
 side = "BOTH"
