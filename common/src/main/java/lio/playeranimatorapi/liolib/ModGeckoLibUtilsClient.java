@@ -1,6 +1,6 @@
-package lio.playeranimatorapi.geckolib;
+package lio.playeranimatorapi.liolib;
 
-import software.bernie.geckolib.core.animation.*;
+import net.liopyu.liolib.core.animation.*;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.world.entity.player.Player;
 import lio.playeranimatorapi.ModInit;

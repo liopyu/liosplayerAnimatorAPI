@@ -32,13 +32,13 @@ public class ModMixinPluginForge implements IMixinConfigPlugin {
     }
 
     private void checkAndDefineInterface() {
-        if (!isModLoaded("geckolib")) {
+        if (!isModLoaded("liolib")) {
             defineInterface();
         }
     }
 
     private static boolean isModLoaded(String modId) {
-        if (Platform.isModLoaded("geckolib", "software.bernie.geckolib.GeckoLib")) {
+        if (Platform.isModLoaded("liolib", "net.liopyu.liolib.LioLib")) {
             return true;
         }
         return false;

@@ -1,12 +1,12 @@
 package lio.playeranimatorapi.mixin;
 
 
-import software.bernie.geckolib.constant.DataTickets;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationProcessor;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.model.GeoModel;
+import net.liopyu.liolib.constant.DataTickets;
+import net.liopyu.liolib.core.animatable.GeoAnimatable;
+import net.liopyu.liolib.core.animation.AnimatableManager;
+import net.liopyu.liolib.core.animation.AnimationProcessor;
+import net.liopyu.liolib.core.animation.AnimationState;
+import net.liopyu.liolib.model.GeoModel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,12 +15,12 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import lio.playeranimatorapi.geckolib.PlayerAnimationModel;
+import lio.playeranimatorapi.liolib.PlayerAnimationModel;
 import lio.playeranimatorapi.playeranims.CustomModifierLayer;
 import lio.playeranimatorapi.playeranims.PlayerAnimations;
 
 @Mixin(GeoModel.class)
-public abstract class GeoModelMixin_GeckoLibOnly<T extends GeoAnimatable> {
+public abstract class GeoModelMixin_LioLibOnly<T extends GeoAnimatable> {
 
     @Shadow(remap = false) private long lastRenderedInstance;
 

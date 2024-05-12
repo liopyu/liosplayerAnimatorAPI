@@ -1,12 +1,12 @@
 package lio.playeranimatorapi.mixin;
 
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
-import software.bernie.geckolib.core.animatable.model.CoreGeoModel;
-import software.bernie.geckolib.core.animation.*;
-import software.bernie.geckolib.core.keyframe.AnimationPoint;
-import software.bernie.geckolib.core.keyframe.BoneAnimationQueue;
-import software.bernie.geckolib.core.state.BoneSnapshot;
+import net.liopyu.liolib.core.animatable.GeoAnimatable;
+import net.liopyu.liolib.core.animatable.model.CoreGeoBone;
+import net.liopyu.liolib.core.animatable.model.CoreGeoModel;
+import net.liopyu.liolib.core.animation.*;
+import net.liopyu.liolib.core.keyframe.AnimationPoint;
+import net.liopyu.liolib.core.keyframe.BoneAnimationQueue;
+import net.liopyu.liolib.core.state.BoneSnapshot;
 import net.minecraft.client.player.AbstractClientPlayer;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +19,7 @@ import com.eliotlash.mclib.utils.Interpolations;
 import java.util.*;
 
 @Mixin(AnimationProcessor.class)
-public abstract class AnimationProcessorMixin_GeckoLibOnly<T extends GeoAnimatable> {
+public abstract class AnimationProcessorMixin_LioLibOnly<T extends GeoAnimatable> {
 
     @Shadow(remap = false) protected abstract Map<String, BoneSnapshot> updateBoneSnapshots(Map<String, BoneSnapshot> snapshots);
 
@@ -57,7 +57,7 @@ public abstract class AnimationProcessorMixin_GeckoLibOnly<T extends GeoAnimatab
                     controller.getBoneAnimationQueues().clear();
                 }
 
-                ((AnimationControllerAccessor_GeckoLibOnly)controller).setIsJustStarting(animatableManager.isFirstTick());
+                ((AnimationControllerAccessor_LioLibOnly)controller).setIsJustStarting(animatableManager.isFirstTick());
                 event.withController(controller);
                 controller.process(model, event, this.bones, boneSnapshots, animTime, crashWhenCantFindBone);
                 var11 = controller.getBoneAnimationQueues().values().iterator();
@@ -79,7 +79,7 @@ public abstract class AnimationProcessorMixin_GeckoLibOnly<T extends GeoAnimatab
                     AnimationPoint scaleXPoint = (AnimationPoint) boneAnimation.scaleXQueue().poll();
                     AnimationPoint scaleYPoint = (AnimationPoint) boneAnimation.scaleYQueue().poll();
                     AnimationPoint scaleZPoint = (AnimationPoint) boneAnimation.scaleZQueue().poll();
-                    EasingType easingType = (EasingType) ((AnimationControllerAccessor_GeckoLibOnly)controller).getOverrideEasingTypeFunction().apply(animatable);
+                    EasingType easingType = (EasingType) ((AnimationControllerAccessor_LioLibOnly)controller).getOverrideEasingTypeFunction().apply(animatable);
                     if (rotXPoint != null && rotYPoint != null && rotZPoint != null) {
                         bone.setRotX((float) EasingType.lerpWithOverride(rotXPoint, easingType) + initialSnapshot.getRotX());
                         bone.setRotY((float) EasingType.lerpWithOverride(rotYPoint, easingType) + initialSnapshot.getRotY());
@@ -170,7 +170,7 @@ public abstract class AnimationProcessorMixin_GeckoLibOnly<T extends GeoAnimatab
             }
 
             this.resetBoneTransformationMarkers();
-            ((AnimatableManagerAccessor_GeckoLibOnly)animatableManager).callFinishFirstTick();
+            ((AnimatableManagerAccessor_LioLibOnly)animatableManager).callFinishFirstTick();
             ci.cancel();
         }
     }

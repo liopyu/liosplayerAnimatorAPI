@@ -16,9 +16,9 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import lio.playeranimatorapi.geckolib.ModGeckoLibUtilsClient;
-import lio.playeranimatorapi.geckolib.PlayerAnimationModel;
-import lio.playeranimatorapi.geckolib.PlayerAnimationRenderer;
+import lio.playeranimatorapi.liolib.ModGeckoLibUtilsClient;
+import lio.playeranimatorapi.liolib.PlayerAnimationModel;
+import lio.playeranimatorapi.liolib.PlayerAnimationRenderer;
 import lio.playeranimatorapi.data.PlayerParts;
 import lio.playeranimatorapi.misc.PlayerModelInterface;
 import lio.playeranimatorapi.playeranims.CustomModifierLayer;
@@ -26,7 +26,7 @@ import lio.playeranimatorapi.playeranims.PlayerAnimations;
 import lio.playeranimatorapi.registry.PlayerEffectsRendererRegistry;
 
 @Mixin(LivingEntityRenderer.class)
-public class LivingEntityRendererMixin_GeckoLibOnly<T extends LivingEntity, M extends EntityModel<T>> {
+public class LivingEntityRendererMixin_LioLibOnly<T extends LivingEntity, M extends EntityModel<T>> {
 
     @Unique
     private PlayerAnimationRenderer animationRenderer;

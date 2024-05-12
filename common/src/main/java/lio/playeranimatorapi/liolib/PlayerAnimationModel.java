@@ -1,6 +1,6 @@
-package lio.playeranimatorapi.geckolib;
+package lio.playeranimatorapi.liolib;
 
-import software.bernie.geckolib.model.GeoModel;
+import net.liopyu.liolib.model.GeoModel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.resources.ResourceLocation;

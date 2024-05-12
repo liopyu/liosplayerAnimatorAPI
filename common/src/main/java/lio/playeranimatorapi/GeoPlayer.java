@@ -1,6 +1,6 @@
 package lio.playeranimatorapi;
 
-import software.bernie.geckolib.animatable.GeoEntity;
+import net.liopyu.liolib.animatable.GeoEntity;
 
 public interface GeoPlayer extends GeoEntity {
 }
