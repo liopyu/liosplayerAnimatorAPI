@@ -19,7 +19,7 @@ public class ModInit {
         ModEntityDataSerializers.init();
         MultiloaderUtils.forceClientToHaveMod(MOD_ID, Platform.getModVersion(MOD_ID));
 
-        if (false && Platform.isModLoaded("geckolib", "software.bernie.geckolib.GeckoLib")) {
+        if (Platform.isModLoaded("geckolib", "software.bernie.geckolib.GeckoLib")) {
             ModGeckoLibUtils.init();
             ModInit.isLiosPlayerAnimatorApiLoaded();
         }

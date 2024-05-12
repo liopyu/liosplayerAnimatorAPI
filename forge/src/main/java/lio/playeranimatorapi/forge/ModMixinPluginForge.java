@@ -32,7 +32,7 @@ public class ModMixinPluginForge implements IMixinConfigPlugin {
     }
 
     private void checkAndDefineInterface() {
-        if (true || !isModLoaded("geckolib")) {
+        if (!isModLoaded("geckolib")) {
             defineInterface();
         }
     }

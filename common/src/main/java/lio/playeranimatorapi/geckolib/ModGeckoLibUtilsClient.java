@@ -11,7 +11,7 @@ import lio.playeranimatorapi.playeranims.PlayerAnimations;
 
 public class ModGeckoLibUtilsClient {
 
-    /*public static PlayerAnimationRenderer currentPlayerRenderer;
+    public static PlayerAnimationRenderer currentPlayerRenderer;
 
     public static void playGeckoAnimation(AbstractClientPlayer player, PlayerAnimationData data, float speed) {
         AnimatableManager<AbstractClientPlayer> manager = player.getAnimatableInstanceCache().getManagerForId(player.getId());
@@ -36,7 +36,7 @@ public class ModGeckoLibUtilsClient {
         if (!controller.isPlayingTriggeredAnimation()) {
             ModGeckoLibUtilsClient.playGeckoAnimation(player, animationContainer.data, animationContainer.getSpeed());
         }
-    }*/
+    }
 
     public static EasingType getEasingTypeForID(Player player) {
         CustomModifierLayer animationContainer = PlayerAnimations.getModifierLayer((AbstractClientPlayer) player);
