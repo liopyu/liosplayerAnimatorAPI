@@ -69,8 +69,8 @@ public class PlayerAnimations {
 
         if (animationContainer != null && animationContainer.isActive() && animationContainer.data.animationID().equals(animationID)) {
             animationContainer.animPlayer.stop();
-            if (Platform.isModLoaded("geckolib")) {
-                ModGeckoLibUtilsClient.stopGeckoAnimation(player);
+            if (false && Platform.isModLoaded("geckolib")) {
+               // ModGeckoLibUtilsClient.stopGeckoAnimation(player);
             }
         }
     }
@@ -229,8 +229,8 @@ public class PlayerAnimations {
                 }
             }
 
-            if (Platform.isModLoaded("geckolib")) {
-                ModGeckoLibUtilsClient.playGeckoAnimation(player, data, animationContainer.getSpeed());
+            if (false && Platform.isModLoaded("geckolib")) {
+                //ModGeckoLibUtilsClient.playGeckoAnimation(player, data, animationContainer.getSpeed());
             }
         } catch (NullPointerException e) {
             logger.warn("Player Animator API failed to play player animation: " + e);

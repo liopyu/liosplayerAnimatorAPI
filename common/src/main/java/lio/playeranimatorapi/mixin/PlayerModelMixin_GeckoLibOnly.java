@@ -15,12 +15,12 @@ import lio.playeranimatorapi.geckolib.PlayerAnimationRenderer;
 @Mixin(PlayerModel.class)
 public class PlayerModelMixin_GeckoLibOnly<T extends LivingEntity> {
 
-    @Inject(method = "setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V", at = @At("TAIL"))
+   /* @Inject(method = "setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V", at = @At("TAIL"))
     private void inject(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
         PlayerAnimationRenderer renderer = ModGeckoLibUtilsClient.currentPlayerRenderer;
         if (renderer != null && entity instanceof Player && ((PlayerAnimationModel)renderer.getGeoModel()).allResourcesExist((AbstractClientPlayer) entity)) {
             renderer.setPlayerModel((PlayerModel) (Object) this);
             renderer.setupAnim(renderer.getGeoModel().getBakedModel(renderer.getGeoModel().getModelResource((AbstractClientPlayer) entity)));
         }
-    }
+    }*/
 }

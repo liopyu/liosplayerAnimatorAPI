@@ -25,9 +25,9 @@ public class ClientPlayerTickEvent {
                     PlayerAnimations.playAnimation((AbstractClientPlayer) player, data, true);
                 }
 
-                if (Platform.isModLoaded("geckolib")) {
+                /*if (Platform.isModLoaded("geckolib")) {
                     ModGeckoLibUtilsClient.tick((AbstractClientPlayer) player, animationContainer);
-                }
+                }*/
             }
         }
     }

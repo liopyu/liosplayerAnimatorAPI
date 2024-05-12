@@ -28,7 +28,7 @@ import lio.playeranimatorapi.registry.PlayerEffectsRendererRegistry;
 @Mixin(LivingEntityRenderer.class)
 public class LivingEntityRendererMixin_GeckoLibOnly<T extends LivingEntity, M extends EntityModel<T>> {
 
-    @Unique
+   /* @Unique
     private PlayerAnimationRenderer animationRenderer;
 
     @Shadow
@@ -105,5 +105,5 @@ public class LivingEntityRendererMixin_GeckoLibOnly<T extends LivingEntity, M ex
                 }
             }
         }
-    }
+    }*/
 }
