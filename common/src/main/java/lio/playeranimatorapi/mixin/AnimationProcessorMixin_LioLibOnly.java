@@ -1,5 +1,6 @@
 package lio.playeranimatorapi.mixin;
 
+import net.lio.shadowed.eliotlash.mclib.utils.Interpolations;
 import net.liopyu.liolib.core.animatable.GeoAnimatable;
 import net.liopyu.liolib.core.animatable.model.CoreGeoBone;
 import net.liopyu.liolib.core.animatable.model.CoreGeoModel;
@@ -15,7 +16,6 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import com.eliotlash.mclib.utils.Interpolations;
 import java.util.*;
 
 @Mixin(AnimationProcessor.class)
